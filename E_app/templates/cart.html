@@ -1,0 +1,430 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cart{% endblock %}
+{% block body %}
+<div class="page-wrapper">
+
+    <div class="content-wrapper">
+
+        <div class="breadcrumb-wrap bg-f br-2">
+            <div class="overlay op-8 bg-black"></div>
+            <div class="container">
+                <div class="breadcrumb-title">
+                    <h2>Cart</h2>
+                    <ul class="breadcrumb-menu list-style">
+                        <li><a href="/">Home </a></li>
+                        <li>Cart</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        {% if request.session.email %}
+        <div class="cart-wrap ptb-100">
+            <div class="container">
+                <div class="row gx-5">
+                    <div class="col-xl-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="cart-table ">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Trash</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Product Name</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">In Stock</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <button class="cart-action" type="button">
+                                                        <i class="ri-delete-bin-6-line"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <div class="product-img">
+                                                        <img src="{% static 'assets/img/products/product-thumb-1.png' %}"
+                                                            alt="Image">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a class="cart-item" href="shop-details.html">
+                                                        <span>Over-ear Headphones</span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <p class="cart-item-price">$58.00</p>
+                                                </td>
+                                                <td>
+                                                    <p>Available</p>
+                                                </td>
+                                                <td>
+                                                    <div class="cart-qty">
+                                                        <div class="product-quantity">
+                                                            <div class="qtySelector">
+                                                                <span class="decreaseQty">
+                                                                    <i class="ri-subtract-line"></i>
+                                                                </span>
+                                                                <input type="text" class="qtyValue" value="1" />
+                                                                <span class="increaseQty">
+                                                                    <i class="ri-add-line"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="cart-item-price">$120.00</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <button class="cart-action" type="button">
+                                                        <i class="ri-delete-bin-6-line"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <div class="product-img">
+                                                        <img src="{% static 'assets/img/products/product-thumb-2.png' %}"
+                                                            alt="Image">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a class="cart-item" href="shop-details.html">
+                                                        <span>Wireless Headphone</span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <p class="cart-item-price">$30.00</p>
+                                                </td>
+                                                <td>
+                                                    <p>Available</p>
+                                                </td>
+                                                <td>
+                                                    <div class="cart-qty">
+                                                        <div class="product-quantity">
+                                                            <div class="qtySelector">
+                                                                <span class="decreaseQty">
+                                                                    <i class="ri-subtract-line"></i>
+                                                                </span>
+                                                                <input type="text" class="qtyValue" value="1" />
+                                                                <span class="increaseQty">
+                                                                    <i class="ri-add-line"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="cart-item-price">$45.00</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <button class="cart-action" type="button">
+                                                        <i class="ri-delete-bin-6-line"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <div class="product-img">
+                                                        <img src="{% static 'assets/img/products/product-thumb-3.png' %}"
+                                                            alt="Image">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a class="cart-item" href="shop-details.html">
+                                                        <span>Base Headphones</span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <p class="cart-item-price">$140.00</p>
+                                                </td>
+                                                <td>
+                                                    <p>Available</p>
+                                                </td>
+                                                <td>
+                                                    <div class="cart-qty">
+                                                        <div class="product-quantity">
+                                                            <div class="qtySelector">
+                                                                <span class="decreaseQty">
+                                                                    <i class="ri-subtract-line"></i>
+                                                                </span>
+                                                                <input type="text" class="qtyValue" value="1" />
+                                                                <span class="increaseQty">
+                                                                    <i class="ri-add-line"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="cart-item-price">$140.00</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <button class="cart-action" type="button">
+                                                        <i class="ri-delete-bin-6-line"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <div class="product-img">
+                                                        <img src="{% static 'assets/img/products/product-thumb-4.png' %}"
+                                                            alt="Image">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a class="cart-item" href="shop-details.html">
+                                                        <span>In-ear Headphones</span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <p class="cart-item-price">$90.00</p>
+                                                </td>
+                                                <td>
+                                                    <p>Available</p>
+                                                </td>
+                                                <td>
+                                                    <div class="cart-qty">
+                                                        <div class="product-quantity">
+                                                            <div class="qtySelector">
+                                                                <span class="decreaseQty">
+                                                                    <i class="ri-subtract-line"></i>
+                                                                </span>
+                                                                <input type="text" class="qtyValue" value="1" />
+                                                                <span class="increaseQty">
+                                                                    <i class="ri-add-line"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="cart-item-price">$140.00</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="coupon-wrap">
+                                    <div class="row">
+                                        <div class="col-lg-5 col-md-6 col-sm-8">
+                                            <div class="coupon-code">
+                                                <input type="text" placeholder="Coupon Code">
+                                                <button type="button">Apply Coupon</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7 col-md-6 col-sm-4 text-sm-end">
+                                            <button class="btn style1" type="button">Update Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-30">
+                            <div class="col-xl-6 offset-xl-3">
+                                <div class="cart-total">
+                                    <h3 class="cart-box-title">Checkout Summary</h3>
+                                    <div class="cart-total-item">
+                                        <p>Subtotal</p>
+                                        <span>$463</span>
+                                    </div>
+                                    <div class="cart-total-item">
+                                        <p>Shipping</p>
+                                        <span>$30</span>
+                                    </div>
+                                    <div class="cart-total-item">
+                                        <p>Discount</p>
+                                        <span>$43</span>
+                                    </div>
+                                    <div class="cart-total-item">
+                                        <p>Total</p>
+                                        <span>$450</span>
+                                    </div>
+                                    <a href="checkout.html" class="btn style1 d-block w-100">Proceed To Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="container m">
+            <div class="col-12 text-center m-5">
+                <h3 class = "m-3">First login to your Account</h3>
+                <p class = 'px-2 mx-3'>Login Here      <a href='/signin' role="button" class = "p-2 text-white" style = "background-color: #cd9453;">Login</a></p>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+
+
+
+
+
+    <footer class="footer-wrap bg-mine-shaft">
+        <div class="container">
+            <div class="row pt-100 pb-75">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 pe-xl-5">
+                    <div class="footer-widget">
+                        <a href="index-2.html" class="footer-logo">
+                            <img src="{% static 'assets/img/logo-white.png' %}" alt="Image">
+                        </a>
+                        <p class="comp-desc">
+                            Lorem ipsum dolor sit amet consec tetur adisoom isotope elit eiusmod temporum incidunt
+                            labore dolore magna aliqu core tetur adip iscing eliteous sedun amet adisoom isotope.
+                        </p>
+                        <div class="social-link">
+                            <h6>Follow Us:</h6>
+                            <ul class="social-profile list-style style3">
+                                <li>
+                                    <a target="_blank" href="https://facebook.com/">
+                                        <i class="ri-facebook-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://twitter.com/">
+                                        <i class="ri-twitter-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://linkedin.com/">
+                                        <i class="ri-linkedin-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://instagram.com/">
+                                        <i class="ri-pinterest-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-2 col-md-6 col-sm-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-widget-title">Information</h3>
+                        <ul class="footer-menu list-style">
+                            <li>
+                                <a href="about.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shop-left-sidebar.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Our Shop
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="refund-policy.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Refund Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="privacy-policy.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Privacy Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 ps-xl-4">
+                    <div class="footer-widget">
+                        <h3 class="footer-widget-title">Account</h3>
+                        <ul class="footer-menu list-style">
+                            <li>
+                                <a href="my-account.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    My Account
+                                </a>
+                            </li>
+                            <li>
+                                <a href="my-account.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    My Orders
+                                </a>
+                            </li>
+                            <li>
+                                <a href="my-account.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Returns
+                                </a>
+                            </li>
+                            <li>
+                                <a href="my-account.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Wishlist
+                                </a>
+                            </li>
+                            <li>
+                                <a href="my-account.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Shipping
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-widget-title">Get In Touch</h3>
+                        <ul class="contact-info list-style">
+                            <li>
+                                <i class="flaticon-pin"></i>
+                                <h6>Location</h6>
+                                <p>2967 Sunrise Street, New York</p>
+                            </li>
+                            <li>
+                                <i class="flaticon-email-1"></i>
+                                <h6>Email</h6>
+                                <a
+                                    href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#6a020f0606052a0f21050744090507"><span
+                                        class="__cf_email__"
+                                        data-cfemail="234b464f4f4c6346684c4e0d404c4e">[email&#160;protected]</span></a>
+                            </li>
+                            <li>
+                                <i class="flaticon-call"></i>
+                                <h6>Phone</h6>
+                                <a href="tel:13454567877">+1-3454-5678-77</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="copyright-text">
+            <i class="ri-copyright-line"></i>
+            <script data-cfasync="false"
+                src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script>
+            <script>document.write(new Date().getFullYear())</script> <span>eKom</span>. All Rights Reserved By <a
+                href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
+        </p>
+    </footer>
+
+</div>
+
+
+<a href="javascript:void(0)" class="back-to-top bounce"><i class="ri-arrow-up-s-line"></i></a>
+
+
+
+
+{% endblock %}

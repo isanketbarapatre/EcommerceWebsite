@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Product-List{% endblock %}
+
+{% block style %}
+<style>
+    .card-box {
+        margin-top: 100px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        width: 100%;
+        background-color: rgb(241, 240, 240);
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 10px 10px;
+    }
+
+    .btn {
+        background-color: #cd9453;
+    }
+
+    .show{
+        margin-top:200px;
+        text-align: left;
+        float: left;
+
+    }
+    .all-btn{
+        width: 100%;
+        display: flex;
+        text-align: left;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+
+
+
+
+<div class="col-12 show">
+    <div class=" container-fluid ">
+        <div class="container all-btn">  
+            {% comment %} <div class="col text-center">
+                <a href="{% url 'product_list' 'all' %}" role="button" class="btn btn-primary  d-inline-block">ALL Products</a>
+            </div>  {% endcomment %}
+
+            <div class="col text-center">
+                <a href="{% url 'product_list' 'mobiles' %}" role="button" class="btn btn-primary  d-inline-block">Mobiles</a>
+            </div> 
+            <div class="col text-center">
+                <a href="{% url 'product_list' 'laptops' %}" role="button" class="btn btn-primary d-inline-block">Laptops</a>
+            </div>
+            <div class="col text-center">
+                <a href="{% url 'product_list' 'headphones' %}" role="button" class="btn btn-primary d-inline-block">Headphones</a>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="card-box">
+
+    <div class="container-fluid">
+        <div class=" container ">
+            <div class="row">
+
+                {% for items in  all_prod %}
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card" style="width: 18rem;">
+                        <a href="{% url 'product_item' items.id %}">
+                        <img class="card-img-top" src="{{items.Image.url}}" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{items.Brand}}</h5>
+                            <p class="card-text">{{items.ProductName}} </p>
+                            <p >{{items.Price}}</p>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

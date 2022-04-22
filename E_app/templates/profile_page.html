@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} profile page {% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+
+  <div class="breadcrumb-wrap bg-f br-2">
+    <div class="overlay op-8 bg-black"></div>
+    <div class="container">
+      <div class="breadcrumb-title">
+        <h2>Profile</h2>
+        <ul class="breadcrumb-menu list-style">
+          <li><a href="/">Home </a></li>
+          <li>Profile</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="Login-wrap pt-100 pb-75">
+    <div class="container">
+      <div class="row gx-5">
+        <div class="col-lg-7 offset-lg-3">
+          <div class="login-form-wrap">
+            <div class="login-header">
+              <h3>Create New Account</h3>
+            </div>
+            <div class="login-form">
+              <div class="login-body">
+                <form class="needs-validation border-bottom pb-3 pb-lg-4 profile-form" method="post" action="{% url 'profile_update' %}" novalidate>
+                  {% csrf_token %}
+                  <!-- <div class="alert-placeholder mb-5">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                  </div> -->   
+                  <div class="row pb-2">
+                    <div class="col-sm-6">
+                      <div class="mb-4">
+                        <label for="fn" class="form-label fs-base">Full name</label>
+                        <input type="text" id="fn" name="full_name" class="form-control form-control-lg"
+                          value="{{profile_data.Fullname}}" required>
+                        <div class="invalid-feedback">Please enter your full name!</div>
+                      </div>
+
+                      <div class="mb-4">
+                        <label for="email" class="form-label fs-base">Email</label>
+                        <input type="email" id="email" name="email" class="form-control form-control-lg"
+                          value="{{profile_data.Master}}" required>
+                        <div class="invalid-feedback">Please enter your full name!</div>
+                      </div>
+
+                      <div class="mb-4">
+                        <label class="form-label fs-base d-block">Gender</label>
+                        {% for gc in gender_choices %}
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input {{gc.small_txt}}" type="radio" id="ex-radio-4"
+                            value="{{gc.small_txt}}" name="gender">
+                          <label class="form-check-label" style="text-transform: capitalize;"
+                            for="ex-radio-4">{{gc.txt}}</label>
+                        </div>
+                        {% endfor %}
+                      </div>
+
+                      <div class="mb-4">
+                        <label for="sn" class="form-label fs-base">Mobile</label>
+                        <input type="text" id="sn" name="mobile" class="form-control form-control-lg"
+                          value="{{profile_data.Mobile}}" required data-format="custom" data-delimiter=""
+                          data-blocks="10" data-numeral="9" placeholder="0000000000">
+                        <div class="invalid-feedback">Please enter your mobile number!</div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <div class="row">
+                        <div class="col mb-4">
+                          <label for="state" class="form-label fs-base">State</label>
+                          <input type="text" id="state" name="state" class="form-control form-control-lg"
+                            value="{{profile_data.State}}" required>
+                          <div class="invalid-feedback">Please provide a valid email address!</div>
+                        </div>
+
+                        <div class="col">
+                          <label for="city" class="form-label fs-base">City</label>
+                          <input type="text" id="city" name="city" class="form-control form-control-lg"
+                            value="{{profile_data.City}}">
+                        </div>
+
+                      </div>
+
+                      <div class="">
+                        <label for="address" class="form-label fs-base">Address</label>
+                        <textarea id="address" name="address" class="form-control form-control-lg" rows="4"
+                          placeholder="Add address lines...">{{profile_data.Address}}</textarea>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="d-flex mb-3">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+
+  $('document').ready(function () {
+    // alert($('.{{profile_data.Gender}}').val())
+    $(".{{profile_data.Gender}}").prop('checked', true);
+
+  //   function alerty(message, type) {
+  //     var wrapper = document.createElement('div')
+  //     wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+  //     // wrapper.css({position: 'absolute',bottom:0});  
+
+  //     $(".profile-form").append(wrapper)
+  //   }
+      
+
+  //   $('.profile-form').submit(function (e) {
+  //     e.preventDefault();
+  //     // alert("HelloWorld")
+
+
+  //     $.ajax({
+  //       url: "{% url 'profile_update' %}",
+  //       method: 'post',
+  //       data: $(this).serialize(),
+  //       success: function (result) {
+  //         alert("Success!");
+  //         alerty('Profile updated successfully', 'success')
+  //       },
+  //       error: function (err) {
+  //         alerty('Something went wrong', 'danger')
+  //       }
+  //     })
+  //   })
+  });
+</script>
+{% endblock %}

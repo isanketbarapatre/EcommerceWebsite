@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+
+<!-- Mirrored from templates.hibootstrap.com/ekom/default/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Mar 2022 10:59:01 GMT -->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/swiper-min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/magnific-popup.min.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/fancybox.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/aos.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/dark-theme.css' %}">
+    <link rel="stylesheet" href="{% static  'assets/css/responsive.css' %}">
+    <title>eKom - {% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
+
+    {% block style %}
+    
+    {% endblock %}
+</head>
+
+<body>
+
+    <div class="loader js-preloader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+    
+    <div class="switch-theme-mode">
+        <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+<div class = "page-wrapper">
+    <header class="header-wrap style1">
+        <div class="header-top bg-mine-shaft">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-5 col-lg-4 col-md-5">
+                        <div class="header-top-left">
+                            <p>Free shipping for all orders of 20% off</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-8 col-md-7">
+                        <div class="header-top-right">
+                            <div class="select-lang">
+                                <i class="ri-earth-fill"></i>
+                                <div class="navbar-option-item navbar-language dropdown language-option">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <span class="lang-name"></span>
+                                    </button>
+                                    <div class="dropdown-menu language-dropdown-menu">
+                                        <a class="dropdown-item" href="#">
+                                            <img src="{% static  'assets/img/uk.png' %}" alt="flag">
+                                            Eng
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="{% static  'assets/img/china.png' %}" alt="flag">
+                                            简体中文
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="{% static  'assets/img/uae.png' %}" alt="flag">
+                                            العربيّة
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="social-profile list-style">
+                                <li>
+                                    <a target="_blank" href="https://facebook.com/">
+                                        <i class="ri-facebook-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://twitter.com/">
+                                        <i class="ri-twitter-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://linkedin.com/">
+                                        <i class="ri-linkedin-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://instagram.com/">
+                                        <i class="ri-pinterest-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <a class="navbar-brand" href="index-2.html">
+                        <img class="logo-light" src="{% static 'assets/img/logo.png' %}" alt="logo">
+                        <img class="logo-dark" src="{% static 'assets/img/logo-white.png' %}" alt="logo">
+                    </a>
+                    <div class="collapse navbar-collapse main-menu-wrap" id="navbarSupportedContent">
+                        <div class="menu-close xl-none">
+                            <a href="javascript:void(0)"> <i class="ri-close-line"></i></a>
+                        </div>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link active">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="about.html" class="nav-link">
+                                    About Us
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    Shop
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            Product List
+                                            <i class="ri-arrow-down-s-line"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a href="{% url 'product_list' 'all' %}" class="nav-link">All Products</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{% url 'product_list' 'mobiles' %}" class="nav-link">Mobiles</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{% url 'product_list' 'laptops' %}" class="nav-link">Laptops</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{% url 'product_list' 'keyboards' %}" class="nav-link">Keyboards</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{% url 'product_list' 'mouse' %}" class="nav-link">Mouse</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+
+                                    
+                                    
+                                    {% comment %} <li class="nav-item">
+                                        <a href="/product_list" class="nav-link">Product List</a>
+                                    </li> {% endcomment %}
+
+
+
+
+                                    <li class="nav-item">
+                                        <a href="wishlist.html" class="nav-link">Wishlist</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'add_to_cart' %}" class="nav-link">Cart</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="checkout.html" class="nav-link">Checkout</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="track-order.html" class="nav-link">Track Order</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            User Pages
+                                            <i class="ri-arrow-right-s-line"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a href="/signup_page" class="nav-link">Register</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/signup_page" class="nav-link">Login</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="/profile_page" class="nav-link">My Account</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="recover-password.html" class="nav-link">Recover
+                                                    Password</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    Blog
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            Blog Layout
+                                            <i class="ri-arrow-right-s-line"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a href="blog-no-sidebar.html" class="nav-link">Blog Grid</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="blog-left-sidebar.html" class="nav-link">Blog Left
+                                                    Sidebar</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="blog-right-sidebar.html" class="nav-link">Blog Right
+                                                    Sidebar</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            Single Blog
+                                            <i class="ri-arrow-right-s-line"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a href="blog-details-no-sidebar.html" class="nav-link">Blog Details
+                                                    No Sidebar</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="blog-details-left-sidebar.html" class="nav-link">Blog
+                                                    Details Left Sidebar</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="blog-details-right-sidebar.html" class="nav-link">Blog
+                                                    Details Right Sidebar</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.html" class="nav-link">Contact Us</a>
+                            </li>
+                            <li class="nav-item xl-none  mt-3">
+                                <a href="/signin_page" class="btn style1">Login</a>
+                            </li>
+                        </ul>
+
+                        <!-- <div class="others-options lg-none mx-3">
+                                <a href="/" class="btn style1">Logout</a>
+                        
+                        </div> -->
+                        
+                        
+                        
+
+                        {% if request.session.email %}
+                        <div class="others-options mx-3 lg-none">
+                            <a href="/signout_page" class="btn style1">Signout</a>
+                        </div>
+                        {% else %}
+                        <div class="others-options lg-none">
+                            <a href="/signin_page" class="btn style1">Login</a>
+                        </div>
+                        {% endif %}
+                        <div class="others-options lg-none">
+                            <button class="searchbtn" type="button">
+                                <i class="flaticon-search"></i>
+                            </button>
+                        </div>
+                        <div class="others-options lg-none">
+                            <div class="shopcart">
+                                <i class="flaticon-shopping-cart"></i>
+                                <span>1</span>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="mobile-bar-wrap">
+                    <button class="searchbtn xl-none" type="button">
+                        <i class="flaticon-search"></i>
+                    </button>
+                    <div class="shopcart d-xl-none">
+                        <i class="flaticon-shopping-cart"></i>
+                        <span>1</span>
+                    </div>
+                    <div class="mobile-menu xl-none">
+                        <a href="javascript:void(0)"><i class="ri-menu-line"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-area">
+            <div class="container">
+                <button type="button" class="close-searchbox">
+                    <i class="ri-close-line"></i>
+                </button>
+                <form action="{% url 'product_list' %}" method = "get">
+                    <div class="form-group ">
+                        <input type="search" placeholder="Search Here"  name = "q" autofocus>
+                        <button class = "btn"><i class = "fas fa-search p-5"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="cart-popup">
+            <button type="button" class="close-cart-popup"><i class="ri-close-fill"></i></button>
+            <div class="cart-popup-body">
+                <a href="" class="cart-item">
+                    <div class="cart-item-action">
+                        <button class="delete-cart-item">
+                            <i class="ri-close-circle-fill"></i>
+                        </button>
+                    </div>
+                    <div class="cart-item-img">
+                        <img src="{% static 'assets/img/products/product-thumb-1.png' %}" alt="Image">
+                    </div>
+                    <div class="cart-item-info">
+                        <h5><a href="shop-details.html">Over-Ear Headphone</a></h5>
+                        <p>$28.00</p>
+                    </div>
+                </a>
+                <div class="cart-item">
+                    <div class="cart-item-action">
+                        <button class="delete-cart-item">
+                            <i class="ri-close-circle-fill"></i>
+                        </button>
+                    </div>
+                    <div class="cart-item-img">
+                        <img src="{% static  'assets/img/products/product-thumb-2.png' %}" alt="Image">
+                    </div>
+                    <div class="cart-item-info">
+                        <h5><a href="shop-details.html">JLB Base Earphone</a></h5>
+                        <p>$40.00</p>
+                    </div>
+                </div>
+                <div class="cart-item">
+                    <div class="cart-item-action">
+                        <button class="delete-cart-item">
+                            <i class="ri-close-circle-fill"></i>
+                        </button>
+                    </div>
+                    <div class="cart-item-img">
+                        <img src="{% static  'assets/img/products/product-thumb-3.png' %}" alt="Image">
+                    </div>
+                    <div class="cart-item-info">
+                        <h5><a href="shop-details.html">Wireless Headphone</a></h5>
+                        <p>$35.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-popup-footer">
+                <div class="total-amt">
+                    <h5>Total Payable</h5>
+                    <h5>$178.00</h5>
+                </div>
+                <div class="cart-popup-btn">
+                    <a href="cart.html" class="btn style1">View Cart</a>
+                    <a href="checkout.html" class="btn style2">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    {% block body %}{% endblock  %}
+
+    
+    <footer class="footer-wrap bg-mine-shaft">
+        <div class="container">
+            <div class="row pt-100 pb-75">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 pe-xl-5">
+                    <div class="footer-widget">
+                        <a href="index.html" class="footer-logo">
+                            <img src="{% static 'assets/img/logo-white.png' %}" alt="Image">
+                        </a>
+                        <p class="comp-desc">
+                            Lorem ipsum dolor sit amet consec tetur adisoom isotope elit eiusmod temporum incidunt
+                            labore dolore magna aliqu core tetur adip iscing eliteous sedun amet adisoom isotope.
+                        </p>
+                        <div class="social-link">
+                            <h6>Follow Us:</h6>
+                            <ul class="social-profile list-style style3">
+                                <li>
+                                    <a target="_blank" href="https://facebook.com/">
+                                        <i class="ri-facebook-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://twitter.com/">
+                                        <i class="ri-twitter-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://linkedin.com/">
+                                        <i class="ri-linkedin-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://instagram.com/">
+                                        <i class="ri-pinterest-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-2 col-md-6 col-sm-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-widget-title">Information</h3>
+                        <ul class="footer-menu list-style">
+                            <li>
+                                <a href="about.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shop-left-sidebar.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Our Shop
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Contact Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="refund-policy.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Refund Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="privacy-policy.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Privacy Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 ps-xl-4">
+                    <div class="footer-widget">
+                        <h3 class="footer-widget-title">Account</h3>
+                        <ul class="footer-menu list-style">
+                            <li>
+                                <a href="my-account.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    My Account
+                                </a>
+                            </li>
+                            <li>
+                                <a href="my-account.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    My Orders
+                                </a>
+                            </li>
+                            <li>
+                                <a href="my-account.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Returns
+                                </a>
+                            </li>
+                            <li>
+                                <a href="my-account.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Wishlist
+                                </a>
+                            </li>
+                            <li>
+                                <a href="my-account.html" target="_blank">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    Shipping
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer-widget">
+                        <h3 class="footer-widget-title">Get In Touch</h3>
+                        <ul class="contact-info list-style">
+                            <li>
+                                <i class="flaticon-pin"></i>
+                                <h6>Location</h6>
+                                <p>2967 Sunrise Street, New York</p>
+                            </li>
+                            <li>
+                                <i class="flaticon-email-1"></i>
+                                <h6>Email</h6>
+                                <a
+                                    href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#d6beb3babab996b39db9bbf8b5b9bb"><span
+                                        class="__cf_email__"
+                                        data-cfemail="afc7cac3c3c0efcae4c0c281ccc0c2">[email&#160;protected]</span></a>
+                            </li>
+                            <li>
+                                <i class="flaticon-call"></i>
+                                <h6>Phone</h6>
+                                <a href="tel:13454567877">+1-3454-5678-77</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="copyright-text">
+            <i class="ri-copyright-line"></i>
+            <script data-cfasync="false"
+                src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script>
+            <script>document.write(new Date().getFullYear())</script> <span>eKom</span>. All Rights Reserved By <a
+                href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
+        </p>
+    </footer>
+
+
+
+
+<a href="javascript:void(0)" class="back-to-top bounce"><i class="ri-arrow-up-s-line"></i></a>
+
+    {% comment %} Jquery  {% endcomment %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/form-validator.min.js' %}"></script>
+    <script src="{% static 'assets/js/contact-form-script.js' %}"></script>
+    <script src="{% static 'assets/js/aos.js' %}"></script>
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/swiper-min.js' %}"></script>
+    <script src="{% static 'assets/js/magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/fancybox.js' %}"></script>
+    <script src="{% static 'assets/js/appear.js' %}"></script>
+    <script src="{% static 'assets/js/tweenmax.min.js' %}"></script>
+    <script src="{% static 'assets/js/progressbar.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    {% comment %} main theme script {% endcomment %}
+
+    <script src="{% static 'assets/js/theme.min.js' %}"></script>
+
+    {% block script %}{% endblock %}
+
+</body>
+
+<!-- Mirrored from templates.hibootstrap.com/ekom/default/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Mar 2022 10:59:20 GMT -->
+
+</html>
