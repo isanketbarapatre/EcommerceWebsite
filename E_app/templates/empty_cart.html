@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cart{% endblock %}
+
+{% block style %}
+<style>
+.empty{
+
+    width: 100%;
+    margin-top:200px;
+    position: relative;
+    text-align: center;
+}
+
+.empty h1{
+    width: 100%;
+    margin: auto;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+
+<div class="container col-12 w-100">
+    <div class="container-fluid">
+        <div class="empty">
+        <h1> The Cart <i style="font-size:50px" class="fa">&#xf07a;</i>
+            is Empty yet.</h1>
+        <h3> Please select any product to add in the cart <h3>
+        </div>
+    </div>
+</div>
+{% endblock %}

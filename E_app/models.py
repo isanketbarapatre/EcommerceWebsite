@@ -37,7 +37,7 @@ category_choices = (
     ('L', 'Laptops'),
     ('Hp', 'Headphones'),
     ('Kb', 'Keyboards'),
-    ('Mo', 'Mouse'),
+    ('Mo', 'Mouse'),  
 )
 
 
@@ -58,14 +58,13 @@ class Product(models.Model):
         
 
 
-class OrderItem(models.Model):
-    Profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    Ordered= models.BooleanField(default=False)
-    Product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    Quantity = models.PositiveIntegerField(default=1)
+class Cart(models.Model):
+    master  = models.ForeignKey(Master, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
     
     class Meta:
-        db_table = 'orderitem'
+        db_table = 'cart'
 
 
 
@@ -82,7 +81,7 @@ class OrderPlaced(models.Model):
     Product = models.ForeignKey(Product, on_delete=models.CASCADE)
     Quantity = models.PositiveIntegerField(default=1)
     ordered_date = models.DateField(auto_now_add=True)  
-    items = models.ManyToManyField(OrderItem)
+    items = models.ManyToManyField(Cart)
     Status= models.CharField(max_length=50, choices = state_choices, default = 'Pending')
     
 

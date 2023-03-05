@@ -26,6 +26,11 @@ urlpatterns = [
     path('otp_page/', views.otp_page, name = "otp_page"),
     path('verify_otp/', views.verify_otp, name = "verify_otp"),
 
+    
+    path('add_to_cart/', views.CustomerCartProduct.as_view(), name='add_to_cart'),
 
-    path('cart/', views.add_to_cart, name = 'add_to_cart'),
+    path('show_cart', views.show_cart, name = 'show_cart'),
+
+    path('checkout', views.checkout, name = "checkout"),
+
 ]

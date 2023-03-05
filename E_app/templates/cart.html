@@ -20,7 +20,9 @@
             </div>
         </div>
 
+    
         {% if request.session.email %}
+        
         <div class="cart-wrap ptb-100">
             <div class="container">
                 <div class="row gx-5">
@@ -41,6 +43,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for prod in carts %}
                                             <tr>
                                                 <td>
                                                     <button class="cart-action" type="button">
@@ -49,17 +52,17 @@
                                                 </td>
                                                 <td>
                                                     <div class="product-img">
-                                                        <img src="{% static 'assets/img/products/product-thumb-1.png' %}"
+                                                        <img src="{{prod.product.Image.url}}"
                                                             alt="Image">
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <a class="cart-item" href="shop-details.html">
-                                                        <span>Over-ear Headphones</span>
+                                                        <span>{{prod.product.ProductName}}</span>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <p class="cart-item-price">$58.00</p>
+                                                    <p class="cart-item-price">Rs.{{prod.product.Price}}.00</p>
                                                 </td>
                                                 <td>
                                                     <p>Available</p>
@@ -71,7 +74,7 @@
                                                                 <span class="decreaseQty">
                                                                     <i class="ri-subtract-line"></i>
                                                                 </span>
-                                                                <input type="text" class="qtyValue" value="1" />
+                                                                <input type="text" class="qtyValue" name = "quantity" placeholder=""value="{{prod.quantity}}" />
                                                                 <span class="increaseQty">
                                                                     <i class="ri-add-line"></i>
                                                                 </span>
@@ -80,135 +83,11 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <p class="cart-item-price">$120.00</p>
+                                                    <p class="cart-item-price">Rs.{{prod.product.Price}}.00</p>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <button class="cart-action" type="button">
-                                                        <i class="ri-delete-bin-6-line"></i>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <div class="product-img">
-                                                        <img src="{% static 'assets/img/products/product-thumb-2.png' %}"
-                                                            alt="Image">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a class="cart-item" href="shop-details.html">
-                                                        <span>Wireless Headphone</span>
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <p class="cart-item-price">$30.00</p>
-                                                </td>
-                                                <td>
-                                                    <p>Available</p>
-                                                </td>
-                                                <td>
-                                                    <div class="cart-qty">
-                                                        <div class="product-quantity">
-                                                            <div class="qtySelector">
-                                                                <span class="decreaseQty">
-                                                                    <i class="ri-subtract-line"></i>
-                                                                </span>
-                                                                <input type="text" class="qtyValue" value="1" />
-                                                                <span class="increaseQty">
-                                                                    <i class="ri-add-line"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="cart-item-price">$45.00</p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <button class="cart-action" type="button">
-                                                        <i class="ri-delete-bin-6-line"></i>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <div class="product-img">
-                                                        <img src="{% static 'assets/img/products/product-thumb-3.png' %}"
-                                                            alt="Image">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a class="cart-item" href="shop-details.html">
-                                                        <span>Base Headphones</span>
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <p class="cart-item-price">$140.00</p>
-                                                </td>
-                                                <td>
-                                                    <p>Available</p>
-                                                </td>
-                                                <td>
-                                                    <div class="cart-qty">
-                                                        <div class="product-quantity">
-                                                            <div class="qtySelector">
-                                                                <span class="decreaseQty">
-                                                                    <i class="ri-subtract-line"></i>
-                                                                </span>
-                                                                <input type="text" class="qtyValue" value="1" />
-                                                                <span class="increaseQty">
-                                                                    <i class="ri-add-line"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="cart-item-price">$140.00</p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <button class="cart-action" type="button">
-                                                        <i class="ri-delete-bin-6-line"></i>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <div class="product-img">
-                                                        <img src="{% static 'assets/img/products/product-thumb-4.png' %}"
-                                                            alt="Image">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a class="cart-item" href="shop-details.html">
-                                                        <span>In-ear Headphones</span>
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <p class="cart-item-price">$90.00</p>
-                                                </td>
-                                                <td>
-                                                    <p>Available</p>
-                                                </td>
-                                                <td>
-                                                    <div class="cart-qty">
-                                                        <div class="product-quantity">
-                                                            <div class="qtySelector">
-                                                                <span class="decreaseQty">
-                                                                    <i class="ri-subtract-line"></i>
-                                                                </span>
-                                                                <input type="text" class="qtyValue" value="1" />
-                                                                <span class="increaseQty">
-                                                                    <i class="ri-add-line"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="cart-item-price">$140.00</p>
-                                                </td>
-                                            </tr>
+                                           </tr>
+                                           {% endfor %}
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -233,19 +112,16 @@
                                     <h3 class="cart-box-title">Checkout Summary</h3>
                                     <div class="cart-total-item">
                                         <p>Subtotal</p>
-                                        <span>$463</span>
+                                        <span>{{amount}}</span>
                                     </div>
                                     <div class="cart-total-item">
                                         <p>Shipping</p>
-                                        <span>$30</span>
+                                        <span>{{shipping_amount}}</span>
                                     </div>
-                                    <div class="cart-total-item">
-                                        <p>Discount</p>
-                                        <span>$43</span>
-                                    </div>
+                                    
                                     <div class="cart-total-item">
                                         <p>Total</p>
-                                        <span>$450</span>
+                                        <span>{{total_amount}}</span>
                                     </div>
                                     <a href="checkout.html" class="btn style1 d-block w-100">Proceed To Checkout</a>
                                 </div>
@@ -256,7 +132,7 @@
             </div>
         </div>
         {% else %}
-        <div class="container m">
+        <div class="container ">
             <div class="col-12 text-center m-5">
                 <h3 class = "m-3">First login to your Account</h3>
                 <p class = 'px-2 mx-3'>Login Here      <a href='/signin' role="button" class = "p-2 text-white" style = "background-color: #cd9453;">Login</a></p>

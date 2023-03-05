@@ -6,6 +6,12 @@
 
 {% block body %}
 <div class="content-wrapper">
+   <!-- <div class="alert-placeholder mb-5">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                  </div> -->  
 
   <div class="breadcrumb-wrap bg-f br-2">
     <div class="overlay op-8 bg-black"></div>
@@ -32,13 +38,7 @@
             <div class="login-form">
               <div class="login-body">
                 <form class="needs-validation border-bottom pb-3 pb-lg-4 profile-form" method="post" action="{% url 'profile_update' %}" novalidate>
-                  {% csrf_token %}
-                  <!-- <div class="alert-placeholder mb-5">
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                  </div> -->   
+                  {% csrf_token %} 
                   <div class="row pb-2">
                     <div class="col-sm-6">
                       <div class="mb-4">

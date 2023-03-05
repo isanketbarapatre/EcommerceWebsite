@@ -48,9 +48,8 @@
                                 <div class="login-form">
                                     <div class="login-body">
                                         <form class="form-wrap" action="{% url 'signup' %}" method ="post">
-                                            {% csrf_token %}
-                                            <div class="row">
-                                                
+                                            {% csrf_token %}                                             
+                                         <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <input id="email" name="email" type="email" required
@@ -63,18 +62,7 @@
                                                             placeholder="Password">
                                                     </div>
                                                 </div>
-                                                
-                                                {% comment %} <div class="col-sm-12 col-12 mb-20">
-                                                    <div class="checkbox style2">
-                                                        <input type="checkbox" id="test_1">
-                                                        <label for="test_1">
-                                                            I Agree with the <a class="link style1"
-                                                                href="terms-of-service.html">Terms &amp; conditions</a>
-                                                        </label>
-                                                    </div>
-                                                </div> {% endcomment %}
-
-
+                                           
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <button class="btn style1">
@@ -86,7 +74,7 @@
                                                     <p class="mb-0">Have an Account? <a class="link style1"
                                                             href="/signin_page">Sign In</a></p>
                                                 </div>
-                                            </div>
+                                            </div>                  
                                         </form>
                                     </div>
                                 </div>
@@ -124,7 +112,7 @@
                                 <p>Subscribe our newsletter to get our updated news</p>
                                 <form class="newsletter-form" data-toggle="validator">
                                     <input type="email" class="form-control" placeholder="Enter Your Email" name="EMAIL"
-                                        required autocomplete="off">
+                                        required autocomplete="off"> 55
                                     <button class="btn style1" type="submit">
                                         Subscribe
                                     </button>

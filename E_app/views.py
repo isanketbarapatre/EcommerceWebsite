@@ -7,14 +7,19 @@ from django.views import View
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
+from django.views.decorators.csrf import csrf_protect
+
+
+# from django.contrib.auth.forms import UserCreationForm
+# from .forms import UserRegistrationForm
 
 # Create your views here.
 default_data = {
     'hello': "World",
     }
 
-# def index(request):
-#     return render(request, 'index.html', default_data)
+def index(request):
+    return render(request, 'index.html', default_data)
 
 def signup_page(request):
     return render(request, 'signup_page.html')
@@ -30,7 +35,7 @@ def otp_page(request):
 
 def profile_page(request):
     if 'email' in request.session:
-        profile_data(request)
+        profile_data(request) 
         return render(request, 'profile_page.html', default_data)
     return redirect('signin_page')
 
@@ -66,10 +71,11 @@ def profile_update(request):
     profile.State = request.POST['state']
     profile.City = request.POST['city']
     profile.Address = request.POST['address']
-
+    
     profile.save()
-
     return redirect('profile_page')
+
+
     # profile_data(request)
     # return JsonResponse(default_data)
 
@@ -91,8 +97,9 @@ def profile_update(request):
 
 def create_otp(request):
     email_to_list = [request.session['reg_data'] ['email']]
+    print("email lissttt===", request.session['reg_data']['email'])
 
-    from_email = settings.EMAIL_HOST_USER
+    from_email = settings.EMAIL_HOST_USER 
     otp = randint(1000, 9999)
     request.session['otp'] = otp
 
@@ -135,7 +142,7 @@ def signup(request):
     create_otp(request)
     return redirect('otp_page')
 
-
+  
 def signin(request):
     if request.method == 'POST':
         master = Master.objects.get(Email=request.POST['email'])
@@ -153,6 +160,7 @@ def signin(request):
 
 def signout_page(request):
     if 'email' in  request.session:
+        print("======================", request.session['email'])
         del request.session['email']
     return redirect('signin_page')
     
@@ -167,6 +175,7 @@ class ProductView(View):
         headphones = Product.objects.filter(Category='Hp')
         keyboards = Product.objects.filter(Category='Kb')
         mouse = Product.objects.filter(Category = 'Mo')
+
         return render(request, 'index.html', {'mobiles': mobiles, 'laptops': laptops, 'headphones':  headphones, 'keyboards': keyboards, 'mouse':mouse})
 
 
@@ -174,7 +183,8 @@ class ProductView(View):
 class ProductItemView(View):
     def get(self, request ,pk):
         product = Product.objects.get(pk=pk)
-        return render(request, 'product_item.html', {'product': product})
+        context = {'product':product}
+        return render(request, 'product_item.html',context)
 
 
 
@@ -193,27 +203,73 @@ class ProductListView(View):
             all_prod = Product.objects.filter(Category = 'L')
         elif data == 'headphones':  
             all_prod = Product.objects.filter(Category = 'Hp')
+
+        context= {'all_prod': all_prod, }
             
-        return render(request, 'product_list.html', {'all_prod': all_prod})
+        return render(request, 'product_list.html',context)
         
 
+class CustomerCartProduct(View):
+        
+    def post(self,request):
+        if request.method == 'POST':
+            print(request.session['email'])
+            # quantity = Cart.objects.get('quantity')
+            master = Master.objects.get(Email = request.session['email'])
+            product_id = request.POST.get('prod_id')
+            exist_product = Cart.objects.filter(master = master, product__id = product_id)
+            if exist_product.exists():
+                pass
+                # exist_product.update(quantity=quantity)
+            cart_product = Cart.objects.create(master = master, product = Product.objects.get(id = product_id))
+            cart_product.save()
+        return redirect('show_cart')
 
 
-# Add To cart
-# class CartProductList:
-#     def add_to_cart(request, pk):
-#         master = Master.objects.get(Email= request.session['email'])
-#         if master.IsActive():
-#             prikey = Product.objects.get(pk = pk)
+def show_cart(request):
+    master = Master.objects.get(Email = request.session['email'])
+    cart_count = Cart.objects.filter(master = master)
+    amount = 0.0
+    shipping_amount = 70.0
+    total_amount = 0.0 + 70.0
+    # cart_product = [p for p in Cart.objects.all() if p.master == master]
 
-#         return render(request, 'cart.html',{'prikey' : prikey})
+    cart = []
+    for p in Cart.objects.all():
+        if p.master == master:
+            cart.append(p)
+    print(cart)
+    # print(cart_product)
+
+    if cart:
+        for p in cart:
+            tamount = (p.quantity * p.product.Price)
+            amount += tamount
+            total_amount = amount + shipping_amount
+        return render(request, 'cart.html', {'carts': cart_count, 'amount': amount, 'total_amount': total_amount, 'tamount':tamount,'shipping_amount': shipping_amount})
+    else:
+        return render(request, 'empty_cart.html')
 
 
 
-def add_to_cart(request):    
+def checkout(request):
+    return render(request, 'checkout.html')
 
-    product_id = request.GET.get('prod_id')
-    product = Product.objects.get(id = product_id)
-    OrderItem( product =  product).save()
-    print(product_id)
-    return render(request, 'cart.html')
+
+
+
+
+# class CustomerRegistration(View):
+#     def get(self, request):
+#         form = UserRegistrationForm()
+#         return render(request, 'registration.html', {'form': form})
+
+#     def post(self, request):
+#         form  = UserRegistrationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#         return render(request, 'registration.html', {'form': form})
+
+
+
+  
